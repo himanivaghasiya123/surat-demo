@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Fibonacci Series</title>
+        <script>
+            function fibonacciSeries(limit) {
+                let fibSeries = [0, 1]
+
+                for (let index = 0; index < limit; index++) {
+                        if(index > 0){
+                           let nextele =  fibSeries[index] + fibSeries[index - 1]
+                           if(nextele <= limit){
+                            fibSeries.push(nextele)
+                           }
+                        }
+                }
+                return fibSeries
+            }
+
+            function handleFibonacciSeries() {
+                let limit = parseInt(document.getElementById('limit').value);
+                let fibSeries = fibonacciSeries(limit);
+                document.getElementById('series').innerText = fibSeries.join(', ');
+            }
+        </script>
+    </head>
+    <body>
+        <h2>Fibonacci Series</h2>
+        <label for="limit">Enter limit:</label>
+        <input type="number" id="limit">
+        <button onclick="handleFibonacciSeries()">Series</button>
+        <div id="series"></div>
+    </body>
+
+</html>
